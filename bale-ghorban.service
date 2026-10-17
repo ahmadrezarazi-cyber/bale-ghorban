@@ -1,0 +1,15 @@
+[Unit]
+Description=بله قربان — Bale bulk messenger Telegram bot
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/bale-ghorban
+Environment=BALE_CDP=http://127.0.0.1:9222
+EnvironmentFile=/home/ubuntu/bale-ghorban/.env
+ExecStart=/home/ubuntu/bale-ghorban/venv/bin/python /home/ubuntu/bale-ghorban/bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

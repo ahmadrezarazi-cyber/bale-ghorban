@@ -1,0 +1,15 @@
+# For local test only — on Coolify deploy via Dockerfile + GIT
+services:
+  bale-ghorban:
+    build: .
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ALLOWED_USERS=${ALLOWED_USERS:-}
+      - BALE_CDP=http://127.0.0.1:9222
+      - BALE_DATA_DIR=/data/.bale-chrome
+    volumes:
+      - bale-data:/data
+    restart: unless-stopped
+
+volumes:
+  bale-data:
